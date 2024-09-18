@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Login from './domain/shared/pages/Login'
 
 function App() {
 
   return (
-    <>
-    <div>Hola mundo</div>
-    </>
+    <main>
+      <Routes>
+        <Route path='/' element={<Login />} />
+      </Routes>
+    </main>
   )
 }
 
