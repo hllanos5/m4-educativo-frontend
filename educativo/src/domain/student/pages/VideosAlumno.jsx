@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../shared/layout/Layout'
 import { Card } from 'primereact/card';
 
-export default function Videos() {
+export default function VideosAlumno() {
 
     const aVideo = [
         {id:1, titulo: "Video 1", subitulo: "video 1"},

@@ -11,21 +11,21 @@ export default function SideBar() {
             icon: 'pi pi-file-edit',
             
             command: () => {
-                navigate("/examen")
+                navigate("/examen-alumno")
             }
         },
         {
             label: 'Mis Videos',
             icon: 'pi pi-video',
             command: () => {
-                navigate("/videos")
+                navigate("/videos-alumno")
             }
         },
         {
             label: 'Exámenes',
             icon: 'pi pi-file-edit',
             command: () => {
-                alert("Exámenes Profesor");
+                navigate("/examen-profesor")
             }
         },
         {

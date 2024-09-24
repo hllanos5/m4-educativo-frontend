@@ -62,7 +62,7 @@ main {
             justify-content: center;
             height: 100%;
         }
-        .examen {
+        .examen-alumno {
             display: grid;
             place-content: center;
             grid-template-columns: repeat(auto-fill, 40%);
@@ -70,6 +70,22 @@ main {
             .card-examen{
                 cursor: pointer;
                 height: 15rem;
+            }
+            .card-examen:hover {
+                background: #f7f7f7;
+            }
+        }
+        .examen-profesor {
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fill, 40%);
+            gap: 2rem;
+            .card-examen{
+                cursor: pointer;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 20rem;
             }
             .card-examen:hover {
                 background: #f7f7f7;

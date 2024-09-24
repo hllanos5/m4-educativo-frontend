@@ -6,7 +6,7 @@ import { ToggleButton } from 'primereact/togglebutton';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 
-export default function ExamenCrear() {   
+export default function ExamenEditarProfesor() {   
     const [checked, setChecked] = useState(false);
     const toast = useRef(null);
 
@@ -24,7 +24,7 @@ export default function ExamenCrear() {
 
   return (
     <Layout>
-        <div className='examen-crear'>
+        <div className='examen-editar-profesor'>
             <h1>Elementary</h1>
             <div className='fila'>
                 <label htmlFor="pregunta1" className="negrita">Pregunta 1: </label>
