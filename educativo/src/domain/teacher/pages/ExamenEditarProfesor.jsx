@@ -41,11 +41,11 @@ export default function ExamenEditarProfesor() {
             </div>
             <div className="fila">
                 <label htmlFor="pregunta3" className="negrita">Graba un video hablando de los animales: </label>
-                <ToggleButton onLabel="Grabando ..." offLabel="Iniciar Grabación" onIcon="pi pi-stop-circle" offIcon="pi pi-play-circle" 
+                <ToggleButton onLabel="Detener Video ..." offLabel="Ver Video" onIcon="pi pi-stop-circle" offIcon="pi pi-play-circle" 
                 checked={checked} onChange={(e) => setChecked(e.value)} />
             </div>
             <div className="fila">
-                <Button label="Finalizar Examen" severity="info" onClick={()=> handleFinalizarExamen()}/>
+                <Button label="Finalizar Edicion" severity="info" onClick={()=> handleFinalizarExamen()}/>
             </div>
         </div>
         <Toast ref={toast} />

@@ -75,6 +75,33 @@ main {
                 background: #f7f7f7;
             }
         }
+        .video-alumno {
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fill, 40%);
+            gap: 2rem;
+            .card-video{
+                cursor: pointer;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 20rem;
+            }
+            .card-video:hover {
+                background: #f7f7f7;
+            }
+        }
+        .examen-crear-alumno{
+            h1{
+                text-align: center;
+            }
+            .seccion-opciones{
+                label {
+                    margin-left: 1rem;
+                    cursor: pointer;
+                }
+            }
+        }
         .examen-profesor {
             display: grid;
             place-content: center;
@@ -91,23 +118,7 @@ main {
                 background: #f7f7f7;
             }
         }
-        .video {
-            display: grid;
-            place-content: center;
-            grid-template-columns: repeat(auto-fill, 40%);
-            gap: 2rem;
-            .card-video{
-                cursor: pointer;
-                justify-content: center;
-                align-items: center;
-                display: flex;
-                height: 20rem;
-            }
-            .card-video:hover {
-                background: #f7f7f7;
-            }
-        }
-        .examen-crear{
+        .examen-editar-profesor{
             h1{
                 text-align: center;
             }

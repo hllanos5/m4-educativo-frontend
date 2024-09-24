@@ -13,7 +13,7 @@ export default function VideosAlumno() {
 
     return (
         <Layout>
-            <div className='video'>
+            <div className='video-alumno'>
             { aVideo.map((video, i)=> 
                 <Card key={i} className='card-video' onClick={()=> {handleResponderExamen(video.id)}}>
                     <h1>{video.titulo}</h1>

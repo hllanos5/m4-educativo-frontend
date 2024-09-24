@@ -24,7 +24,7 @@ export default function ExamenCrearAlumno() {
 
   return (
     <Layout>
-        <div className='examen-crear'>
+        <div className='examen-crear-alumno'>
             <h1>Elementary</h1>
             <div className='fila'>
                 <label htmlFor="pregunta1" className="negrita">Pregunta 1: </label>
