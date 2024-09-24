@@ -18,7 +18,7 @@ export default function SideBar() {
             label: 'Mis Videos',
             icon: 'pi pi-video',
             command: () => {
-                alert("Mis videos");
+                navigate("/videos")
             }
         },
         {

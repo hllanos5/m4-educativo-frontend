@@ -72,6 +72,18 @@ main {
                 height: 15rem;
             }
         }
+        .video {
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fill, 40%);
+            gap: 2rem;
+            .card-video{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                height: 20rem;
+            }
+        }
         .examen-crear{
             h1{
                 text-align: center;
