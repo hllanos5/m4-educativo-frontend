@@ -3,19 +3,19 @@ import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
 import { InputText } from "primereact/inputtext";
 import { Button } from 'primereact/button';
-//import { AuthContext } from '../../shared/context/authContext';
+import { AuthContext } from "../context/AuthContext";
 
 export default function Login() {
-    //const { loginMutation } = useContext(AuthContext);
+    const { loginMutation } = useContext(AuthContext);
 
     const handleLogin = async e => {
         e.preventDefault();
-        /*const data = {
+        const data = {
             username: e.target.username.value,
             password: e.target.password.value,
         };
 
-        await loginMutation.mutate(data);*/
+        await loginMutation.mutate(data);
 
   };
   
