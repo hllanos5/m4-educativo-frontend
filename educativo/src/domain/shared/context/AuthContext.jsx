@@ -26,10 +26,9 @@ export const AuthContextProvider = ({children}) => {
     const setUserData = (data) => {
         setUser(data);
     }
-    reutn (
-        <AuthContextProvider value={{user, setUserData, loginMutation, errorMessage}}>
+    return (
+        <AuthContext.Provider value={{user, setUserData, loginMutation, errorMessage}}>
             {children}
-        </AuthContextProvider>
+        </AuthContext.Provider>
     )
 }
-

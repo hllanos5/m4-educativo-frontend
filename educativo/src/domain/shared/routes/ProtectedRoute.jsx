@@ -8,6 +8,7 @@ import { useContext, useEffect } from 'react';
 function ProtectedRoute({children}) {
     const authToken = localStorage.getItem("authToken");
     const {setUserData} = useContext(AuthContext);
+
     const {data, isError, isLoading} = useQuery({
         queryKey: ["user"],
         queryFn: () => getMyInformation(authToken),
@@ -35,6 +36,6 @@ function ProtectedRoute({children}) {
 }
 
 ProtectedRoute.propTypes = {
-    children: proptypes.any.isRequired,
-  };
+    children: proptypes.any,
+};
 export default ProtectedRoute    
