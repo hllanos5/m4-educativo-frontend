@@ -28,7 +28,7 @@ function ProtectedRoute({children}) {
     if (!authToken || (isError && !data)) {
         localStorage.removeItem("authToken");
         console.clear();
-        return <Navigate to="/login" replace={true} />;
+        return <Navigate to="/" replace={true} />;
     }
 
     return <Outlet />;
