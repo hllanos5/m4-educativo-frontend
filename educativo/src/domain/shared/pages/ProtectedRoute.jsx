@@ -1,0 +1,40 @@
+import proptypes from 'prop-types';
+import {useQuery} from "@tanstack/react-query";
+import { Navigate } from 'react-router-dom';
+import { getMyInformation } from '../api/authApi';
+import { AuthContext } from '../context/AuthContext';
+import { useContext, useEffect } from 'react';
+
+function ProtectedRoute({children}) {
+    const authToken = localStorage.getItem("authToken");
+    const {setUserData} = useContext(AuthContext);
+    const {data, isError, isLoading} = useQuery({
+        queryKey: ["user"],
+        queryFn: () => getMyInformation(authToken),
+        retry: 1,
+        enabled: Boolean(authToken),
+    })
+
+    useEffect(() => {
+        if (data&& !isError && !isLoading) {
+            setUserData(data);
+            
+        }
+    }, [data, isError, isLoading, setUserData]);
+   if (isLoading) return <div>Cargando...</div>
+
+    
+    if (!authToken || (isError && !data)) {
+        localStorage.removeItem("authToken");
+        console.clear();
+        return <Navigate to="/login" replace={true} />;
+    }
+
+    return children
+    
+}
+
+ProtectedRoute.propTypes = {
+    children: proptypes.any.isRequired,
+  };
+export default ProtectedRoute    
