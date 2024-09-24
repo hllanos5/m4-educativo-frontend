@@ -47,6 +47,15 @@ main {
     .principal {
         padding: 2rem 2rem 0 2rem;
         height: 100%;
+        .negrita{
+            font-weight: bold;
+        }
+        .fila{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-block: 1rem;
+        }
         .dashboard{
             display: flex;
             align-items: center;
@@ -59,7 +68,19 @@ main {
             grid-template-columns: repeat(auto-fill, 40%);
             gap: 2rem;
             .card-examen{
+                cursor: pointer;
                 height: 15rem;
+            }
+        }
+        .examen-crear{
+            h1{
+                text-align: center;
+            }
+            .seccion-opciones{
+                label {
+                    margin-left: 1rem;
+                    cursor: pointer;
+                }
             }
         }
     }
