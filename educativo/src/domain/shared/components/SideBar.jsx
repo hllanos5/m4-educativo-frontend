@@ -39,7 +39,7 @@ export default function SideBar() {
             label: 'Nuevo Examen',
             icon: 'pi pi-pencil',
             command: () => {
-                alert("Mi examen");
+                navigate("/examen-crear-profesor")
             }
         }
         

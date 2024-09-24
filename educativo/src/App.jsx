@@ -10,6 +10,7 @@ import VideosAlumno from './domain/student/pages/VideosAlumno';
 import ExamenProfesor from './domain/teacher/pages/ExamenProfesor';
 import ExamenEditarProfesor from './domain/teacher/pages/ExamenEditarProfesor';
 import ListadoAlumnos from './domain/teacher/pages/ListadoAlumnos';
+import ExamenCrearProfesor from './domain/teacher/pages/ExamenCrearProfesor';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/examen-profesor' element={<ExamenProfesor />} />
           <Route path='/examen-editar-profesor/:id' element={<ExamenEditarProfesor />} />
           <Route path='/alumnos-profesor' element={<ListadoAlumnos />} />
+          <Route path='/examen-crear-profesor' element={<ExamenCrearProfesor />} />
         </Route>        
       </Routes>
     </>

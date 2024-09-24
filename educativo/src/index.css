@@ -134,6 +134,11 @@ main {
                 text-align: center;
             }
         }
+        .examen-crear-profesor{
+            h1{
+                text-align: center;
+            }
+        }
     }
 }
 
