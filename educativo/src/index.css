@@ -71,6 +71,9 @@ main {
                 cursor: pointer;
                 height: 15rem;
             }
+            .card-examen:hover {
+                background: #f7f7f7;
+            }
         }
         .video {
             display: grid;
@@ -78,10 +81,14 @@ main {
             grid-template-columns: repeat(auto-fill, 40%);
             gap: 2rem;
             .card-video{
+                cursor: pointer;
                 justify-content: center;
                 align-items: center;
                 display: flex;
                 height: 20rem;
+            }
+            .card-video:hover {
+                background: #f7f7f7;
             }
         }
         .examen-crear{
