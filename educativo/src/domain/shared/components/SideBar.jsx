@@ -1,14 +1,17 @@
 import React from 'react'
 import { TieredMenu } from 'primereact/tieredmenu';
+import {useNavigate} from "react-router-dom";
 
 export default function SideBar() {
+    const navigate = useNavigate();
 
     const items = [
         {
             label: 'Exámenes',
             icon: 'pi pi-file-edit',
+            
             command: () => {
-                alert("Exámenes Alumno");
+                navigate("/examen")
             }
         },
         {
