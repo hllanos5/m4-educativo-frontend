@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'primereact/card';
-import Layout from '../layout/Layout'
+import Layout from '../../shared/layout/Layout'
 import { useNavigate } from 'react-router-dom';
 
 export default function Examen() {
