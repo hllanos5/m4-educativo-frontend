@@ -1,6 +1,6 @@
 import proptypes from 'prop-types';
 import {useQuery} from "@tanstack/react-query";
-import { Navigate } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import { getMyInformation } from '../api/authApi';
 import { AuthContext } from '../context/AuthContext';
 import { useContext, useEffect } from 'react';
@@ -31,7 +31,7 @@ function ProtectedRoute({children}) {
         return <Navigate to="/login" replace={true} />;
     }
 
-    return children
+    return <Outlet />;
     
 }
 
