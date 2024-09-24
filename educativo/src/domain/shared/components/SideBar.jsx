@@ -32,7 +32,7 @@ export default function SideBar() {
             label: 'Mis Alumnos',
             icon: 'pi pi-video',
             command: () => {
-                alert("Mis Alumnos");
+                navigate("/alumnos-profesor")
             }
         },
         {

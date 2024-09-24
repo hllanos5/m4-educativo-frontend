@@ -129,6 +129,11 @@ main {
                 }
             }
         }
+        .listado-alumnos-profesor{
+            h1{
+                text-align: center;
+            }
+        }
     }
 }
 
