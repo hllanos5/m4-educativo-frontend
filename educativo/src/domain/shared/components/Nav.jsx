@@ -11,7 +11,9 @@ export default function Nav() {
     const setLocation = useNavigate();
 
     const handleLogout = () => {
-        alert("Salir Sistema")
+        localStorage.removeItem('authToken');
+        console.clear();
+        setLocation('/');
       };
 
     return (
