@@ -1,48 +1,49 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TieredMenu } from 'primereact/tieredmenu';
 import {useNavigate} from "react-router-dom";
-
+import { AuthContext } from '../context/AuthContext';
 export default function SideBar() {
     const navigate = useNavigate();
 
-    const items = [
+    const {user} = useContext(AuthContext);
+
+    const items = user?.rol === 'student' ? [
         {
             label: 'Exámenes',
             icon: 'pi pi-file-edit',
-            
             command: () => {
-                navigate("/examen-alumno")
+                navigate("/examen-alumno");
             }
         },
         {
             label: 'Mis Videos',
             icon: 'pi pi-video',
             command: () => {
-                navigate("/videos-alumno")
+                navigate("/videos-alumno");
             }
-        },
+        }
+    ] : [
         {
             label: 'Exámenes',
             icon: 'pi pi-file-edit',
             command: () => {
-                navigate("/examen-profesor")
+                navigate("/examen-profesor");
             }
         },
         {
             label: 'Mis Alumnos',
-            icon: 'pi pi-video',
+            icon: 'pi pi-users',
             command: () => {
-                navigate("/alumnos-profesor")
+                navigate("/alumnos-profesor");
             }
         },
         {
             label: 'Nuevo Examen',
             icon: 'pi pi-pencil',
             command: () => {
-                navigate("/examen-crear-profesor")
+                navigate("/examen-crear-profesor");
             }
         }
-        
     ];
 
     return (
