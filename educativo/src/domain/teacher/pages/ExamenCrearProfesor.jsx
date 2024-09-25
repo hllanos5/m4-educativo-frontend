@@ -37,27 +37,36 @@ export default function ExamenCrearProfesor() {
     <Layout>
         <div className='examen-crear-profesor'>
             <h1>Crear Examen</h1>
+            <div class="fila">
+                <label htmlFor="nombre" className="negrita">Titulo: </label>
+                <InputText  name="nombre" placeholder="Ingrese titulo"/>
+            </div>
             <div className='fila'>
                 <label htmlFor="Seleccione Nivel" className="negrita">Elige nivel exámen: </label>
                 <ListBox value={selectedNivel} onChange={(e) => setSelectedNivel(e.value)} options={aNivel} optionLabel="name" />
-            </div>
-            <div className='fila'>
-                <label htmlFor="tipo-examen" className="negrita">Elige nivel exámen: </label>
-                <Dropdown value={selecteTipo} onChange={(e) => setSelectedTipo(e.value)} options={aTipo} optionLabel="name" 
-                placeholder="Seleccione Tipo" />
             </div>
             <div className='fila'>
                 <Button label="Agregar Pregunta" severity="info" onClick={()=> handleAddInputPreguntas()}/>
             </div>
             {
                 addPreguntas.map((element) => 
-                    <div class="fila" key={element.id}>
-                        <InputText  name={`pregunta_${element.id}`} placeholder={`Ingrese pregunta ${element.id +1}`}/>
+                    <div className="seccion-preguntas">
+                        <div>
+                            <Dropdown value={selecteTipo} onChange={(e) => setSelectedTipo(e.value)} options={aTipo} optionLabel="name" placeholder="Seleccione Tipo" />
+                        </div>
+                        <div>
+                            <InputText  name={`pregunta_${element.id}`} placeholder={`Ingrese pregunta ${element.id +1}`}/>
+                        </div>
+                        <div>
+                            <InputText  name={`respuesta_${element.id}`} placeholder={`Ingrese respuesta ${element.id +1}`}/>
+                        </div>
+                        <div>
+                            <InputText  name={`puntaje_${element.id}`} placeholder={`Ingrese Puntaje ${element.id +1}`}/>
+                        </div>
                     </div>
                 )
-
-                
             }
+
             {
                 addPreguntas.length> 0 && 
                 <div className='fila'>

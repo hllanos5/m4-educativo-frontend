@@ -138,6 +138,15 @@ main {
             h1{
                 text-align: center;
             }
+            .seccion-preguntas{
+                display: grid;
+                grid-template-columns: 20% 20% 20% 20%;
+                gap:1rem;
+                margin-bottom: 1rem;
+                .p-dropdown, .p-inputtext{
+                    width: 100%;
+                }
+            }
         }
     }
 }
