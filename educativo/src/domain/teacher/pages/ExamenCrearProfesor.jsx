@@ -106,5 +106,5 @@ export default function ExamenCrearProfesor() {
                 }
             </div>    
         </Layout>
-    )
+    );
 }
