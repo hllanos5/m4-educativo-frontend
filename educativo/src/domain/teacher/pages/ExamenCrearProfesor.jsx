@@ -1,16 +1,33 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import Layout from '../../shared/layout/Layout'
 import { Dropdown } from 'primereact/dropdown'
 import { InputText } from "primereact/inputtext"
 import { ListBox } from 'primereact/listbox'
 import { Button } from 'primereact/button'
+import { GrupalContext } from "../../../context/QuestContext"
 
 export default function ExamenCrearProfesor() {
+    const { createQSimpleMutation } = useContext(GrupalContext)
 
     const [selectedNivel, setSelectedNivel] = useState(null)
     const [addPreguntas, setAddPreguntas] = useState([])
     let [contadorPreguntas, setContadorPreguntas] = useState(0)
-    
+
+    const handleQSimple = async (e, pregunta) => {
+        e.preventDefault()
+        const data = {
+            question: pregunta.pregunta,
+            answer: pregunta.respuesta,
+            points: pregunta.puntaje,
+            level: selectedNivel ? selectedNivel.name : null,
+            type: pregunta.tipo && pregunta.tipo.name === 'Pregunta Simple' ? 'simple' :
+                pregunta.tipo && pregunta.tipo.name === 'Opcion multiple' ? 'multiple' :
+                    pregunta.tipo && pregunta.tipo.name === 'Video' ? 'video' :
+                        'DefaultType'
+        }
+        await createQSimpleMutation.mutate(data)
+    }
+
     const aNivel = [
         { name: 'Elementary', id: 1 },
         { name: 'A1', id: 2 },
@@ -19,7 +36,7 @@ export default function ExamenCrearProfesor() {
 
     const aTipo = [
         { name: 'Pregunta Simple', id: 1 },
-        { name: 'Opcion multiple', id: 2},
+        { name: 'Opcion multiple', id: 2 },
         { name: 'Video', id: 3 }
     ]
 
@@ -29,7 +46,7 @@ export default function ExamenCrearProfesor() {
     }
 
     const handleTipoChange = (e, id) => {
-        const updatedPreguntas = addPreguntas.map(p => 
+        const updatedPreguntas = addPreguntas.map(p =>
             p.id === id ? { ...p, tipo: e.value } : p
         )
         setAddPreguntas(updatedPreguntas)
@@ -63,48 +80,52 @@ export default function ExamenCrearProfesor() {
                     <Button label="Agregar Pregunta" severity="info" onClick={handleAddInputPreguntas} />
                 </div>
                 {
-                    addPreguntas.map((element) => 
+                    addPreguntas.map((element) =>
                         <div key={element.id} className="seccion-preguntas">
                             <div>
-                                <Dropdown 
-                                    value={element.tipo} 
-                                    onChange={(e) => handleTipoChange(e, element.id)} 
-                                    options={aTipo} 
-                                    optionLabel="name" 
-                                    placeholder="Seleccione Tipo" 
+                                <Dropdown
+                                    value={element.tipo}
+                                    onChange={(e) => handleTipoChange(e, element.id)}
+                                    options={aTipo}
+                                    optionLabel="name"
+                                    placeholder="Seleccione Tipo"
                                 />
                             </div>
                             <div>
-                                <InputText 
-                                    value={element.pregunta} 
-                                    onChange={(e) => handleInputChange(e, element.id, 'pregunta')} 
-                                    placeholder={`Ingrese pregunta ${element.id + 1}`} 
+                                <InputText
+                                    value={element.pregunta}
+                                    onChange={(e) => handleInputChange(e, element.id, 'pregunta')}
+                                    placeholder={`Ingrese pregunta ${element.id + 1}`}
                                 />
                             </div>
                             <div>
-                                <InputText 
-                                    value={element.respuesta} 
-                                    onChange={(e) => handleInputChange(e, element.id, 'respuesta')} 
-                                    placeholder={`Ingrese respuesta ${element.id + 1}`} 
+                                <InputText
+                                    value={element.respuesta}
+                                    onChange={(e) => handleInputChange(e, element.id, 'respuesta')}
+                                    placeholder={`Ingrese respuesta ${element.id + 1}`}
                                 />
                             </div>
                             <div>
-                                <InputText 
-                                    value={element.puntaje} 
-                                    onChange={(e) => handleInputChange(e, element.id, 'puntaje')} 
-                                    placeholder={`Ingrese Puntaje ${element.id + 1}`} 
+                                <InputText
+                                    value={element.puntaje}
+                                    onChange={(e) => handleInputChange(e, element.id, 'puntaje')}
+                                    placeholder={`Ingrese Puntaje ${element.id + 1}`}
                                 />
                             </div>
+                            <button
+                                onClick={(e) => handleQSimple(e, element)}>
+                                Save Question
+                            </button>
                         </div>
                     )
                 }
                 {
-                    addPreguntas.length > 0 && 
+                    addPreguntas.length > 0 &&
                     <div className='fila'>
                         <Button label="Crear Examen" severity="success" onClick={handleCrearExamen} />
                     </div>
                 }
-            </div>    
+            </div>
         </Layout>
     );
 }
