@@ -11,6 +11,7 @@ import ExamenProfesor from './domain/teacher/pages/ExamenProfesor';
 import ExamenEditarProfesor from './domain/teacher/pages/ExamenEditarProfesor';
 import ListadoAlumnos from './domain/teacher/pages/ListadoAlumnos';
 import ExamenCrearProfesor from './domain/teacher/pages/ExamenCrearProfesor';
+import ListadoExamenProfesor from './domain/teacher/pages/ListadoExamenProfesor';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <Route path='/examen-alumno' element={<ExamenAlumno />} />
           <Route path='/examen-crear-alumno/:id' element={<ExamenCrearAlumno />} />
           <Route path='/videos-alumno' element={<VideosAlumno />} />
-          <Route path='/examen-profesor' element={<ExamenProfesor />} />
+          <Route path='/examen-nivel-profesor' element={<ExamenProfesor />} />
+          <Route path='/listado-examen-profesor/:id' element={<ListadoExamenProfesor />} />
           <Route path='/examen-editar-profesor/:id' element={<ExamenEditarProfesor />} />
           <Route path='/alumnos-profesor' element={<ListadoAlumnos />} />
           <Route path='/examen-crear-profesor' element={<ExamenCrearProfesor />} />

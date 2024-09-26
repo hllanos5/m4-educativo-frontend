@@ -9,7 +9,6 @@ import { AuthContext } from '../context/AuthContext';
 export default function Nav() {
 
     const {user} = useContext(AuthContext);
-    console.log(user);
     const op = useRef(null);
     const setLocation = useNavigate();
 

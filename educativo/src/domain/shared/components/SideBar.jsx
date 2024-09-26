@@ -8,10 +8,10 @@ export default function SideBar() {
     
     const aMenuProfesor = [
         {
-            label: 'Exámenes',
+            label: 'Nivel',
             icon: 'pi pi-file-edit',
             command: () => {
-                navigate("/examen-profesor");
+                navigate("/examen-nivel-profesor");
             }
         },
         {

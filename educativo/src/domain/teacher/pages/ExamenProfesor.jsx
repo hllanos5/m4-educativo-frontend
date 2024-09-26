@@ -10,7 +10,7 @@ function Examen() {
   const {listado} = listarCourse();
 
   const handleResponderExamen = (id) => {
-    navigate("/examen-editar-profesor/" + id);
+    navigate("/listado-examen-profesor/" + id);
   }
 
   return (
