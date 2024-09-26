@@ -4,9 +4,12 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 import { Avatar } from 'primereact/avatar';
 import { Divider } from 'primereact/divider';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 export default function Nav() {
 
+    const {user} = useContext(AuthContext);
+    console.log(user);
     const op = useRef(null);
     const setLocation = useNavigate();
 
@@ -18,7 +21,7 @@ export default function Nav() {
 
     return (
         <nav>
-            <label htmlFor="">Alumno Funval</label>
+            <label htmlFor="">{user?.lName} {user?.mName}</label>
             <Avatar image="logo.png" shape="circle" onClick={(e) => op.current.toggle(e)}/>
 
             <OverlayPanel ref={op}>

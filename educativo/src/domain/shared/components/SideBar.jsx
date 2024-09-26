@@ -6,45 +6,13 @@ export default function SideBar() {
     const navigate = useNavigate();
 
     const {user} = useContext(AuthContext);
-
-    const items = user?.rol === 'student' ? [
-        {
-            label: 'Exámenes',
-            icon: 'pi pi-file-edit',
-            command: () => {
-                navigate("/examen-alumno");
-            }
-        },
-        {
-            label: 'Mis Videos',
-            icon: 'pi pi-video',
-            command: () => {
-                navigate("/videos-alumno");
-            }
-        }
-    ] : [
-        {
-            label: 'Exámenes',
-            icon: 'pi pi-file-edit',
-            command: () => {
-                navigate("/examen-profesor");
-            }
-        },
-        {
-            label: 'Mis Alumnos',
-            icon: 'pi pi-users',
-            command: () => {
-                navigate("/alumnos-profesor");
-            }
-        },
-        {
-            label: 'Nuevo Examen',
-            icon: 'pi pi-pencil',
-            command: () => {
-                navigate("/examen-crear-profesor");
-            }
-        }
-    ];
+    let items = [];
+    if(user?.role === 'student'){
+        items = aMenuAlumno
+    }
+    else if(user?.role === 'teacher'){
+        items = aMenuProfesor
+    }
 
     return (
         <aside>
@@ -53,3 +21,44 @@ export default function SideBar() {
         </aside>
     )
 }
+
+const aMenuProfesor = [
+    {
+        label: 'Exámenes',
+        icon: 'pi pi-file-edit',
+        command: () => {
+            navigate("/examen-profesor");
+        }
+    },
+    {
+        label: 'Mis Alumnos',
+        icon: 'pi pi-users',
+        command: () => {
+            navigate("/alumnos-profesor");
+        }
+    },
+    {
+        label: 'Nuevo Examen',
+        icon: 'pi pi-pencil',
+        command: () => {
+            navigate("/examen-crear-profesor");
+        }
+    }
+];
+
+const aMenuAlumno = [
+    {
+        label: 'Exámenes',
+        icon: 'pi pi-file-edit',
+        command: () => {
+            navigate("/examen-alumno");
+        }
+    },
+    {
+        label: 'Mis Videos',
+        icon: 'pi pi-video',
+        command: () => {
+            navigate("/videos-alumno");
+        }
+    }
+]
