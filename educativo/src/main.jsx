@@ -8,7 +8,7 @@ import 'primeicons/primeicons.css';
 import './index.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom';
-import { GrupalProvider } from './context/QuestContext.jsx';
+import { GrupalProvider } from './domain/shared/context/QuestContext.jsx';
 
 const queryClient = new QueryClient();
 

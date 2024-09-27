@@ -28,3 +28,8 @@ export const obtenerExamen = ({id}) => {
     useEffect(() => { getExamen() }, [])
     return { examen }
 }
+
+export const obtenerExamenPorCurso =async (cursoId) =>{
+    const res = await axios.get(`http://localhost:3000/api/exams/course/${cursoId}`);
+    return res.data
+}

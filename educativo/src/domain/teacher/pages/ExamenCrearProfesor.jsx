@@ -4,7 +4,7 @@ import { Dropdown } from 'primereact/dropdown'
 import { InputText } from "primereact/inputtext"
 import { ListBox } from 'primereact/listbox'
 import { Button } from 'primereact/button'
-import { GrupalContext } from "../../../context/QuestContext"
+import { GrupalContext } from "../../shared/context/QuestContext"
 
 export default function ExamenCrearProfesor() {
     const { createQSimpleMutation } = useContext(GrupalContext)

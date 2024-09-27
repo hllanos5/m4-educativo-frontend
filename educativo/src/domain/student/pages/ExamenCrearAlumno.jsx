@@ -1,4 +1,5 @@
-import React, { useState, useRef  } from "react";
+import React, { useState, useRef, useContext, useEffect  } from "react";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 import Layout from '../../shared/layout/Layout'
 import { InputText } from "primereact/inputtext";
@@ -6,8 +7,9 @@ import { RadioButton } from "primereact/radiobutton";
 import { ToggleButton } from 'primereact/togglebutton';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
+import  useExamen  from "../../shared/services/useExamen" 
 
-export default function ExamenCrearAlumno() {   
+export default function ExamenCrearAlumno() {
     const [checked, setChecked] = useState(false);
     const toast = useRef(null);
 
@@ -39,6 +41,15 @@ export default function ExamenCrearAlumno() {
         }
     }
 
+    //Cargando data para las preguntas
+    const { id } = useParams();
+    const { examenes, isExamenesLoading } = useExamen({ cursoId: id });
+
+    if (isExamenesLoading) {
+        return <div>Cargando ...</div>;
+    }
+    console.log(examenes);
+    
   return (
     <Layout>
         <div className='examen-crear-alumno'>
