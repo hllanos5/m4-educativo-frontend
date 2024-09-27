@@ -22,7 +22,7 @@ export default function ExamenAlumno() {
               key={course.id}
               title={course.name} 
               style={{ width: '25rem', marginBottom: '2em' }}
-              footer={<span className="p-button p-button-secondary" onClick={() => handleResponderExamen(course.id)}>Responder Examen</span>}
+              footer={<span className="p-button p-button-secondary" onClick={() => handleResponderExamen(course._id)}>Responder Examen</span>}
             >
               <p className='m-0'>
               
