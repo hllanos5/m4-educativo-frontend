@@ -7,31 +7,48 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { obtenerExamen } from "../../shared/api/examApi";
 import { useParams } from 'react-router-dom';
+import {listarCourse} from '../../shared/api/courseApi'
 
 
 export default function ExamenEditarProfesor() {   
-    const toast = useRef(null);
-    const [titulo, setTitulo] = useState('');
-
     const { id } = useParams();
+    const toast = useRef(null);
+    const [titulo, setTitulo] = useState('');    
+    //Obtener el examen a modificar
     const {examen} = obtenerExamen({id});
+    // Listar los cursos
+    const {listado} = listarCourse();
 
-    const aOpcion = [
-        { name: 'Opcion 1', id: 1 },
-        { name: 'Opcion 2', id: 2 },
-        { name: 'Opcion 3', id: 3 },
-        { name: 'Opcion 4', id: 4 }
-    ];
-    const [selectedPregunta2, setSelectedPregunta2] = useState(aOpcion[0]);
+    let aOpcion = [];
+    listado?.data?.forEach((element)=>{
+        aOpcion.push({id: element._id, name: element.name});
+    })
 
+    const [selectedNivel, setSelectedNivel] = useState(aOpcion[0]);
+    
+    
     const handleFinalizarExamen = ( )=>{
         toast.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
     }
 
+    const cargarDatos = ()=>{
+        /*if(listado !== undefined){
+            console.log("Hola");
+            console.log(listado?.data);
+        }
+        
+        listado.data.forEach((element, i) => {
+            if(element.data._id === examen.data._id){
+                setSelectedNivel[i];
+            }
+        })*/
+    }
+
     useEffect(() => {
         setTitulo(examen?.data?.name)
+        cargarDatos();
 
-      }, [examen]) 
+      }, [examen,listado]) 
 
   return (
     <Layout>
@@ -43,9 +60,9 @@ export default function ExamenEditarProfesor() {
             </div>
             <div className='fila'>
                 <label htmlFor="pregunta2" className="negrita">Elige nivel examen:</label>
-                {aOpcion.map((opcion) => 
+                {aOpcion?.length> 0 && aOpcion.map((opcion) => 
                 <div key={opcion.id} className="seccion-opciones">
-                    <RadioButton inputId={opcion.id} name="pregunta2" value={opcion} onChange={(e) => setSelectedPregunta2(e.value)} checked={selectedPregunta2.id === opcion.id} />
+                    <RadioButton inputId={opcion.id} name="pregunta2" value={opcion} onChange={(e) => setSelectedNivel(e.value)} checked={selectedNivel?.id === opcion?.id} />
                     <label htmlFor={opcion.id} className="ml-2">{opcion.name}</label>
                 </div>
                 )}
@@ -64,3 +81,7 @@ export default function ExamenEditarProfesor() {
     </Layout>
   )
 }
+
+/*
+
+*/ 
