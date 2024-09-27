@@ -33,3 +33,8 @@ export const obtenerExamenPorCurso =async (cursoId) =>{
     const res = await axios.get(`http://localhost:3000/api/exams/course/${cursoId}`);
     return res.data
 }
+
+export const obtenerExamenPorId =async (examenId) =>{
+    const res = await axios.get(`http://localhost:3000/api/exams/${examenId}`);
+    return res.data
+}

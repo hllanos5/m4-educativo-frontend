@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { obtenerExamenPorCurso } from '../api/examApi';
+import { obtenerExamenPorCurso, obtenerExamenPorId } from '../api/examApi';
 
-function useExamen({ cursoId }) {
+function useExamen({ cursoId, examenId }) {
   console.log(cursoId);
   
   const { data: examenes, isLoading: isExamenesLoading } = useQuery({
@@ -10,12 +10,13 @@ function useExamen({ cursoId }) {
     enabled: Boolean(cursoId),
   });
 
-  /*const { data: examen, isLoading: isExamenLoading } = useQuery({
+  const { data: examen, isLoading: isExamenLoading } = useQuery({
     queryKey: ['examen'],
-    queryFn: () => getExamenById(token, examenId),
+    queryFn: () => obtenerExamenPorId(examenId),
     enabled: Boolean(examenId),
   });
 
+  /*
   const resultMutation = useMutation({
     mutationKey: ['nuevoExamen'],
     mutationFn: postResultExamen,
@@ -28,7 +29,9 @@ function useExamen({ cursoId }) {
 
   return {
     examenes,
-    isExamenesLoading
+    examen,
+    isExamenesLoading,
+    isExamenLoading
   };
 }
 
