@@ -32,10 +32,10 @@ export default function SideBar() {
 
     const aMenuAlumno = [
         {
-            label: 'Exámenes',
+            label: 'Cursos',
             icon: 'pi pi-file-edit',
             command: () => {
-                navigate("/examen-alumno");
+                navigate("/listado-cursos");
             }
         },
         {

@@ -6,6 +6,9 @@ import ProtectedRoute from './domain/shared/routes/ProtectedRoute';
 import ExamenAlumno from './domain/student/pages/ExamenAlumno';
 import ExamenCrearAlumno from './domain/student/pages/ExamenCrearAlumno';
 import VideosAlumno from './domain/student/pages/VideosAlumno';
+import ListadoCursos from './domain/student/pages/ListadoCursos';
+import ListadoExamenes from './domain/student/pages/ListadoExamenes';
+
 //Componentes de profesor
 import ExamenProfesor from './domain/teacher/pages/ExamenProfesor';
 import ExamenEditarProfesor from './domain/teacher/pages/ExamenEditarProfesor';
@@ -23,6 +26,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path='/dashboard' element={<DashBoard />} />
           <Route path='/examen-alumno' element={<ExamenAlumno />} />
+          <Route path='/listado-cursos' element={<ListadoCursos />} />
+          <Route path='/listado-examenes/:id' element={<ListadoExamenes />} />
           <Route path='/examen-crear-alumno/:id' element={<ExamenCrearAlumno />} />
           <Route path='/videos-alumno' element={<VideosAlumno />} />
           <Route path='/examen-nivel-profesor' element={<ExamenProfesor />} />

@@ -75,6 +75,38 @@ main {
                 background: #f7f7f7;
             }
         }
+        .listado-cursos{
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fill, 40%);
+            gap: 2rem;
+            .card-cursos{
+                cursor: pointer;
+                height: 15rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .card-cursos:hover {
+                background: #f7f7f7;
+            }
+        }
+        .listado-examenes{
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fill, 40%);
+            gap: 2rem;
+            .card-examenes{
+                cursor: pointer;
+                height: 15rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .card-examenes:hover {
+                background: #f7f7f7;
+            }
+        }
         .video-alumno {
             display: grid;
             place-content: center;
