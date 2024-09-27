@@ -21,7 +21,7 @@ export default function ListadoCursos() {
           {user && user.courses?.length > 0 ? (
             user.courses.map((course) => (
               <Card  className='card-cursos'
-                key={course.id}
+                key={course._id}
                 title={course.name} 
                 style={{ width: '25rem', marginBottom: '2em' }}
                 onClick={() => handleResponderExamen(course._id)}
