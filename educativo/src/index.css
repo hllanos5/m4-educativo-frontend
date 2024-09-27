@@ -134,6 +134,14 @@ main {
                 text-align: center;
             }
         }
+        .listado-examen-profesor {
+            .identificador{
+                cursor: pointer;
+            }
+            .identificador:hover{
+                text-decoration: underline;
+            }
+        }
         .examen-crear-profesor{
             h1{
                 text-align: center;
